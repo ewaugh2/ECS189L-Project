@@ -10,9 +10,7 @@ public class SetKeyMainMenu : MonoBehaviour
     Transform player;
     Transform buttonInit;
 
-    GameObject button;
-    GameObject child;
-    string buttonText;
+    Text buttonText;
 
     Event keyEvent;
     KeyCode newKey;
@@ -71,75 +69,33 @@ public class SetKeyMainMenu : MonoBehaviour
                 }
             }
         }
-        
-
-        // if (keyEvent.isKey && waitingForKey)
-        // {
-        //     newKey = keyEvent.KeyCode;
-        //     waitingForKey = false;
-        // }
     }
 
     public void Update()
     {
-        button = EventSystem.current.currentSelectedGameObject;
-
-        if (button.name != "Settings")
-        {
-            waitingForKey = false;
-            OnGUI();
-        }
+        
     }
 
-    public void OnGUI()
+    void OnGUI()
     {
-        if (button != null)
-        {
-            if (buttonList.Contains(button.name) && !waitingForKey)
-            {
-                waitingForKey = true;
-                // Debug.Log(button.name);
-            }
-            else
-            {
-                waitingForKey = false;
-            }
-        }
-
-        if (waitingForKey)
-        {
-            keyEvent = Event.current;
-            
-            if (keyEvent != null)
-            {
-                if (keyEvent.isKey)
-                {
-                    key = button.name.Substring(0, button.name.Length - 6) + button.transform.parent.name.Substring(6, 1);
-                    newKey = keyEvent.keyCode;
-
-                    InputManager.IM.buttonKeys[key] = newKey;
-                    button.GetComponentInChildren<Text>().text = InputManager.IM.buttonKeys[key].ToString();
-                    // waitingForKey = false;
-
-                    // Debug.Log(key);
-                    // Debug.Log(newKey);
-                    // Debug.Log(" ");
-                }
-            }
-        }
+        keyEvent = Event.current;
         
-            
+        if(keyEvent.isKey && waitingForKey)
+        {
+            newKey = keyEvent.keyCode;
+            waitingForKey = false;
+        }
     }
 
     public void StartAssignment(string keyName)
     {
-        if (!waitingForKey)
+        if(!waitingForKey)
         {
             StartCoroutine(AssignKey(keyName));
         }
     }
 
-    public void SendText(string text)
+    public void SendText(Text text)
     {
         buttonText = text;
     }
@@ -158,17 +114,10 @@ public class SetKeyMainMenu : MonoBehaviour
 
         yield return WaitForKey();
 
-        key = button.GetComponentInChildren<Text>().text;
-        var number = button.transform.parent.name;
-        Debug.Log(key + number.GetType() + number);
-
-        // switch (keyName)
-        // {
-        //     case "UpButton":
-        //         InputManager.IM.buttonKeys[button.GetComponentInChildren<Text>().text];
-        //     default:
-        // }
+        InputManager.IM.buttonKeys[keyName] = newKey;
+        buttonText.text = InputManager.IM.buttonKeys[keyName].ToString();
 
         yield return null;
+
     }
 }
