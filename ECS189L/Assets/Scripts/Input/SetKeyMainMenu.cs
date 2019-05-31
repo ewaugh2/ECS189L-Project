@@ -80,7 +80,7 @@ public class SetKeyMainMenu : MonoBehaviour
     {
         keyEvent = Event.current;
         
-        if(keyEvent.isKey && waitingForKey)
+        if (keyEvent.isKey && waitingForKey)
         {
             newKey = keyEvent.keyCode;
             waitingForKey = false;
@@ -89,7 +89,7 @@ public class SetKeyMainMenu : MonoBehaviour
 
     public void StartAssignment(string keyName)
     {
-        if(!waitingForKey)
+        if (!waitingForKey)
         {
             StartCoroutine(AssignKey(keyName));
         }

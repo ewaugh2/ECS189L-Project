@@ -6,7 +6,7 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager IM;
 
-    [SerializeField] public Dictionary<string, KeyCode> buttonKeys;
+    public Dictionary<string, KeyCode> buttonKeys;
 
     void Awake()
     {
@@ -47,28 +47,5 @@ public class InputManager : MonoBehaviour
         buttonKeys["Attack2"] = KeyCode.Q;
         buttonKeys["Attack3"] = KeyCode.U;
         buttonKeys["Attack4"] = KeyCode.R;
-    }
-
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public bool GetButtonDown( string buttonName )
-    {
-        if( buttonKeys.ContainsKey(buttonName) == false )
-        {
-            Debug.LogError("InputManager::GetButtonDown >> No button named " + buttonName);
-            return false;
-        }
-
-        return Input.GetKeyDown( buttonKeys[buttonName] );
     }
 }
