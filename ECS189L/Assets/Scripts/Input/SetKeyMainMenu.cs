@@ -18,18 +18,9 @@ public class SetKeyMainMenu : MonoBehaviour
 
     bool waitingForKey;
 
-    List<string> buttonList;
-
     public void Start()
     {
         waitingForKey = false;
-
-        buttonList = new List<string>();
-        buttonList.Add("UpButton");
-        buttonList.Add("DownButton");
-        buttonList.Add("LeftButton");
-        buttonList.Add("RightButton");
-        buttonList.Add("AttackButton");
 
         controls = this.transform;
 
