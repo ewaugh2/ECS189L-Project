@@ -7,20 +7,21 @@ public class PlayerMovementCommand : ScriptableObject, IPlayerCommand
     private float Speed = 5;
     private Vector3 direction;
 
-    static private float DIAGONAL_VALUE = 1.0 / Mathf.Sqrt(2);
+    static private float DIAGONAL_VALUE = 1.0f / Mathf.Sqrt(2);
 
     private PlayerMovementCommand(Vector3 direction)
     {
         this.direction = direction;
     }
 
-    public void Execute(GameObject gameObject)
+    public bool Execute(GameObject gameObject)
     {
         var rigidBody = gameObject.GetComponent<Rigidbody2D>();
         if (rigidBody != null)
         {
             rigidBody.velocity = new Vector3(Speed * direction.x, Speed * direction.y, Speed * direction.z);
         }
+        return true;
     }
 
     static public PlayerMovementCommand GetMoveUp()

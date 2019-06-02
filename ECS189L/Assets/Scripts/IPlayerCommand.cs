@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IPirateCommand
+public interface IPlayerCommand
 {
     bool Execute(GameObject player);
 }

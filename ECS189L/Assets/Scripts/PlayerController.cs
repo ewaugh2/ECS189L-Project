@@ -6,35 +6,35 @@ public class PlayerController : MonoBehaviour
 {
     public void MoveUp()
     {
-        PlayerMovementCommands.GetMoveUp().Execute(this);
+        PlayerMovementCommand.GetMoveUp().Execute(this.gameObject);
     }
     public void MoveDown()
     {
-        PlayerMovementCommands.GetMoveDown().Execute(this);
+        PlayerMovementCommand.GetMoveDown().Execute(this.gameObject);
     }
     public void MoveLeft()
     {
-        PlayerMovementCommands.GetMoveLeft().Execute(this);
+        PlayerMovementCommand.GetMoveLeft().Execute(this.gameObject);
     }
     public void MoveRight()
     {
-        PlayerMovementCommands.GetMoveRight().Execute(this);
+        PlayerMovementCommand.GetMoveRight().Execute(this.gameObject);
     }
     public void MoveUpRight()
     {
-        PlayerMovementCommands.GetMoveUpRight().Execute(this);
+        PlayerMovementCommand.GetMoveUpRight().Execute(this.gameObject);
     }
     public void MoveUpLeft()
     {
-        PlayerMovementCommands.GetMoveUpLeft().Execute(this);
+        PlayerMovementCommand.GetMoveUpLeft().Execute(this.gameObject);
     }
     public void MoveDownRight()
     {
-        PlayerMovementCommands.GetMoveDownRight().Execute(this);
+        PlayerMovementCommand.GetMoveDownRight().Execute(this.gameObject);
     }
     public void MoveDownLeft()
     {
-        PlayerMovementCommands.GetMoveDownLeft().Execute(this);
+        PlayerMovementCommand.GetMoveDownLeft().Execute(this.gameObject);
     }
 
 
