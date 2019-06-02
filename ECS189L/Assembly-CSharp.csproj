@@ -55,12 +55,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\Input\SetKeyMainMenu.cs" />
      <Compile Include="Assets\Scripts\IPlayerCommand.cs" />
      <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementCommand.cs" />
+     <Compile Include="Assets\Scripts\PlayerSpawner.cs" />
+     <Compile Include="Assets\Scripts\ZombieSpawner.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
