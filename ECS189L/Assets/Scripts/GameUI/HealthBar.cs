@@ -20,6 +20,8 @@ public class HealthBar : MonoBehaviour
       bar.localScale = new Vector3(sizeNormalized, 1f);
       float move = (1-sizeNormalized) * 100;
       bar.localPosition = new Vector3(bar.localPosition.x - move, bar.localPosition.y);
-      health.GetComponent<Image>().color = new Color32((-200*sizeNormalized)+255,(((-200*sizeNormalized)+255)*-1)+255,0,255);
+      float red = (-200*sizeNormalized)+255;
+      float green = (red*-1)+310;
+      health.GetComponent<Image>().color = new Color32((byte)red,(byte)green,0,255);
     }
 }
