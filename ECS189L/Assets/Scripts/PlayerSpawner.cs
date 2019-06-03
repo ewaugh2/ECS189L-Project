@@ -32,6 +32,7 @@ public class PlayerSpawner : MonoBehaviour
     //Spawn the player
     public void spawnPlayer()
     {
-        var player = (GameObject)Instantiate(playerPrefab, this.transform.position, Quaternion.identity);
+        var player = (GameObject)Instantiate(playerPrefab, new Vector3(125, 95, 0), Quaternion.identity);
+        player.transform.parent = GameObject.Find("Canvas").transform;
     }
 }
