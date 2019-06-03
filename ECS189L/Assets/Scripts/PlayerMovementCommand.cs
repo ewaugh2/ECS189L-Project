@@ -9,7 +9,7 @@ public class PlayerMovementCommand : ScriptableObject, IPlayerCommand
 
     static private float DIAGONAL_VALUE = 1.0f / Mathf.Sqrt(2);
 
-    private PlayerMovementCommand(Vector3 direction)
+    public void Init(Vector3 direction)
     {
         this.direction = direction;
     }
@@ -26,42 +26,58 @@ public class PlayerMovementCommand : ScriptableObject, IPlayerCommand
 
     static public PlayerMovementCommand GetMoveUp()
     {
-        return new PlayerMovementCommand(new Vector3(0, 1, 0));
+        var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
+        data.Init(new Vector3(0, 1, 0));
+        return data;
     }
 
     static public PlayerMovementCommand GetMoveDown()
     {
-        return new PlayerMovementCommand(new Vector3(0, -1, 0));
+        var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
+        data.Init(new Vector3(0, -1, 0));
+        return data;
     }
 
     static public PlayerMovementCommand GetMoveRight()
     {
-        return new PlayerMovementCommand(new Vector3(1, 0, 0));
+        var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
+        data.Init(new Vector3(1, 0, 0));
+        return data;
     }
 
     static public PlayerMovementCommand GetMoveLeft()
     {
-        return new PlayerMovementCommand(new Vector3(-1, 0, 0));
+        var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
+        data.Init(new Vector3(-1, 0, 0));
+        return data;
     }
 
     static public PlayerMovementCommand GetMoveUpRight()
     {
-        return new PlayerMovementCommand(new Vector3(DIAGONAL_VALUE, DIAGONAL_VALUE, 0));
+        var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
+        data.Init(new Vector3(DIAGONAL_VALUE, DIAGONAL_VALUE, 0));
+        return data;
     }
 
     static public PlayerMovementCommand GetMoveUpLeft()
     {
-        return new PlayerMovementCommand(new Vector3(DIAGONAL_VALUE, -DIAGONAL_VALUE, 0));
+        var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
+        data.Init(new Vector3(DIAGONAL_VALUE, -DIAGONAL_VALUE, 0));
+        return data;
     }
 
     static public PlayerMovementCommand GetMoveDownRight()
     {
-        return new PlayerMovementCommand(new Vector3(-DIAGONAL_VALUE, DIAGONAL_VALUE, 0));
+        var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
+        data.Init(new Vector3(-DIAGONAL_VALUE, DIAGONAL_VALUE, 0));
+        return data;
     }
 
     static public PlayerMovementCommand GetMoveDownLeft()
     {
-        return new PlayerMovementCommand(new Vector3(-DIAGONAL_VALUE, -DIAGONAL_VALUE, 0));
+        var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
+        data.Init(new Vector3(-DIAGONAL_VALUE, -DIAGONAL_VALUE, 0));
+        return data;
     }
 
 }

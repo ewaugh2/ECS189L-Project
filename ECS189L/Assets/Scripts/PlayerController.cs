@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    int state = 0;
+
     public void MoveUp()
     {
         PlayerMovementCommand.GetMoveUp().Execute(this.gameObject);
@@ -47,6 +49,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Should input be handled from here?
+
+        Debug.Log(state);
+
+        // Just beta testing, moving the cube around
+        if(state < 10) MoveUp();
+        else if(state < 20) MoveDown();
+        else if(state < 30) MoveRight();
+        else if(state < 40) MoveLeft();
+        else if(state < 50) MoveUpRight();
+        else if(state < 60) MoveDownLeft();
+        else if(state < 70) MoveUpLeft();
+        else MoveDownRight();
+
+        state++;
+        if(state >= 80)
+        {
+            state = 0;
+        }
     }
 
 
