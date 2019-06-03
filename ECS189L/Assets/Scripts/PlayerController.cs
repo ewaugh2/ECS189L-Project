@@ -48,26 +48,55 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Should input be handled from here?
+        // Assuming it's player 1
+        var dictionary = InputManager.IM.buttonKeys;
+        int up = Input.GetKeyDown(dictionary["Up1"]) ? 1 : 0;
+        int down = Input.GetKeyDown(dictionary["Down1"]) ? 1 : 0;
+        int left = Input.GetKeyDown(dictionary["Left1"]) ? 1 : 0;
+        int right = Input.GetKeyDown(dictionary["Right1"]) ? 1 : 0;
 
-        Debug.Log(state);
-
-        // Just beta testing, moving the cube around
-        if(state < 10) MoveUp();
-        else if(state < 20) MoveDown();
-        else if(state < 30) MoveRight();
-        else if(state < 40) MoveLeft();
-        else if(state < 50) MoveUpRight();
-        else if(state < 60) MoveDownLeft();
-        else if(state < 70) MoveUpLeft();
-        else MoveDownRight();
-
-        state++;
-        if(state >= 80)
+        if (up + down + left + right > 2)
         {
-            state = 0;
+            // Do nothing if more than 2 directions
+        }
+        else if (up == 1)
+        {
+            if (left == 1)
+            {
+                MoveUpLeft();
+            }
+            else if (right == 1)
+            {
+                MoveUpRight();
+            }
+            else
+            {
+                MoveUp();
+            }
+        }
+        else if (down == 1)
+        {
+            if (left == 1)
+            {
+                MoveDownLeft(); 
+            }
+            else if (right == 1)
+            {
+                MoveDownRight();
+            }
+            else
+            {
+                MoveDown();
+            }
+        }
+        else if (left == 1)
+        {
+            MoveLeft();
+        }
+        else if (right == 1)
+        {
+            MoveRight();
         }
     }
-
 
 }

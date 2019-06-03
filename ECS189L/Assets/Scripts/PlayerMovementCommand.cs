@@ -62,14 +62,14 @@ public class PlayerMovementCommand : ScriptableObject, IPlayerCommand
     static public PlayerMovementCommand GetMoveUpLeft()
     {
         var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
-        data.Init(new Vector3(DIAGONAL_VALUE, -DIAGONAL_VALUE, 0));
+        data.Init(new Vector3(-DIAGONAL_VALUE, DIAGONAL_VALUE, 0));
         return data;
     }
 
     static public PlayerMovementCommand GetMoveDownRight()
     {
         var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
-        data.Init(new Vector3(-DIAGONAL_VALUE, DIAGONAL_VALUE, 0));
+        data.Init(new Vector3(DIAGONAL_VALUE, -DIAGONAL_VALUE, 0));
         return data;
     }
 
