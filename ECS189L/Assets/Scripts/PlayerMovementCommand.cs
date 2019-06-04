@@ -79,5 +79,11 @@ public class PlayerMovementCommand : ScriptableObject, IPlayerCommand
         data.Init(new Vector3(-DIAGONAL_VALUE, -DIAGONAL_VALUE, 0));
         return data;
     }
+    static public PlayerMovementCommand GetStandStill()
+    {
+        var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
+        data.Init(new Vector3(0, 0, 0));
+        return data;        
+    }
 
 }

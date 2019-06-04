@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMovementCommand.GetMoveDownLeft().Execute(this.gameObject);
     }
+    public void IgnoreGravity()
+    {
+        PlayerMovementCommand.GetStandStill().Execute(this.gameObject);
+    }
 
 
     // Start is called before the first frame update
@@ -46,14 +50,14 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Assuming it's player 1
         var dictionary = InputManager.IM.buttonKeys;
-        int up = Input.GetKeyDown(dictionary["Up1"]) ? 1 : 0;
-        int down = Input.GetKeyDown(dictionary["Down1"]) ? 1 : 0;
-        int left = Input.GetKeyDown(dictionary["Left1"]) ? 1 : 0;
-        int right = Input.GetKeyDown(dictionary["Right1"]) ? 1 : 0;
+        int up = Input.GetKey(dictionary["Up1"]) ? 1 : 0;
+        int down = Input.GetKey(dictionary["Down1"]) ? 1 : 0;
+        int left = Input.GetKey(dictionary["Left1"]) ? 1 : 0;
+        int right = Input.GetKey(dictionary["Right1"]) ? 1 : 0;
 
         if (up + down + left + right > 2)
         {
