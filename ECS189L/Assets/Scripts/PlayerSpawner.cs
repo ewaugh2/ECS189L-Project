@@ -33,7 +33,7 @@ public class PlayerSpawner : MonoBehaviour
     public void spawnPlayer()
     {
         var map = GameObject.Find("Map");
-        var player = (GameObject)Instantiate(playerPrefab, map.transform.localPosition + new Vector3(45,45,0), Quaternion.identity);
+        var player = (GameObject)Instantiate(playerPrefab, map.transform.localPosition + new Vector3(100,100,0), Quaternion.identity);
         player.transform.parent = GameObject.Find("Canvas").transform;
     }
 }
