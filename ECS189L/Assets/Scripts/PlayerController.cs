@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMovementCommand.GetMoveDownLeft().Execute(this.gameObject);
     }
-    public void IgnoreGravity()
+    public void StopMovement()
     {
         PlayerMovementCommand.GetStandStill().Execute(this.gameObject);
     }
@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
         int down = Input.GetKey(dictionary["Down1"]) ? 1 : 0;
         int left = Input.GetKey(dictionary["Left1"]) ? 1 : 0;
         int right = Input.GetKey(dictionary["Right1"]) ? 1 : 0;
+
+        StopMovement();
 
         if (up + down + left + right > 2)
         {
