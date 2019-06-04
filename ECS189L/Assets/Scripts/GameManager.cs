@@ -57,14 +57,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Game started!");
-        startGame(1);
+        startGame((int)SharedInfo.CrossSceneInformation[0] - '0');
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //Return game manager instance (create one if it doesn't exist)
@@ -81,7 +80,7 @@ public class GameManager : MonoBehaviour
     //Start the game
     public void startGame(int numPlayers)
     {
-        createSpawners();
+        createSpawners(numPlayers);
         startGameInitialization(numPlayers);
         setGameState(GameState.playing);
     }
@@ -93,14 +92,17 @@ public class GameManager : MonoBehaviour
     }
 
     //Create spawners
-    private void createSpawners()
+    private void createSpawners(int numPlayers)
     {
         playerSpawner = new GameObject();
         playerSpawner.AddComponent<PlayerSpawner>();
 
         var spawner = playerSpawner.GetComponent<PlayerSpawner>();
         spawner.setPrefab(playerPrefab);
-        spawner.spawnPlayer();
+        for (int i = 0; i < numPlayers; i++)
+        {
+          spawner.spawnPlayer();
+        }
     }
 
     //Change game state
@@ -109,5 +111,5 @@ public class GameManager : MonoBehaviour
         gamestate = state;
     }
 
-    
+
 }

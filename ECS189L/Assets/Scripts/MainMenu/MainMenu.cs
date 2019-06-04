@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 
   public void PlayGame()
   {
+   SharedInfo.CrossSceneInformation = EventSystem.current.currentSelectedGameObject.name;
    SceneManager.LoadScene(1);
-   this.ChosenGame = EventSystem.current.currentSelectedGameObject.name;
   }
 }
