@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    int state = 0;
+    public static int count = 1;
+    public int ID;
+
+    void Start()
+    {
+        int auxID = count;
+        this.ID = auxID;
+        count += 1;
+    }
 
     public void MoveUp()
     {
@@ -44,20 +52,14 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Assuming it's player 1
         var dictionary = InputManager.IM.buttonKeys;
-        int up = Input.GetKey(dictionary["Up1"]) ? 1 : 0;
-        int down = Input.GetKey(dictionary["Down1"]) ? 1 : 0;
-        int left = Input.GetKey(dictionary["Left1"]) ? 1 : 0;
-        int right = Input.GetKey(dictionary["Right1"]) ? 1 : 0;
+        int up = Input.GetKey(dictionary["Up"+this.ID.ToString()]) ? 1 : 0;
+        int down = Input.GetKey(dictionary["Down"+this.ID.ToString()]) ? 1 : 0;
+        int left = Input.GetKey(dictionary["Left"+this.ID.ToString()]) ? 1 : 0;
+        int right = Input.GetKey(dictionary["Right"+this.ID.ToString()]) ? 1 : 0;
 
         StopMovement();
 
