@@ -8,13 +8,13 @@ public class PlayerSpawner : MonoBehaviour
 
     public PlayerSpawner()
     {
-       
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,7 +32,8 @@ public class PlayerSpawner : MonoBehaviour
     //Spawn the player
     public void spawnPlayer()
     {
-        var player = (GameObject)Instantiate(playerPrefab, new Vector3(125, 95, 0), Quaternion.identity);
-        player.transform.parent = GameObject.Find("Canvas").transform;
+        var map = GameObject.Find("Map");
+        var player = (GameObject)Instantiate(playerPrefab, map.transform.localPosition + new Vector3(20,20,0), Quaternion.identity);
+        player.transform.parent = GameObject.Find("Map").transform;
     }
 }
