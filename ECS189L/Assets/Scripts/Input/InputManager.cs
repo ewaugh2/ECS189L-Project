@@ -10,16 +10,16 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        if (IM == null)
+        // If it's already created
+        if(IM != null)
         {
-            DontDestroyOnLoad(gameObject);
-            IM = this;
-        }
-        else if (IM != this)
-        {
-            Destroy(gameObject);
+            return;
         }
 
+        // Othwerwise, create and initialize 
+        
+        DontDestroyOnLoad(gameObject);
+        IM = this;
         buttonKeys = new Dictionary<string, KeyCode>();
 
         buttonKeys["Up1"] = KeyCode.UpArrow;
