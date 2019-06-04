@@ -101,7 +101,6 @@ public class SetKeyMainMenu : MonoBehaviour
 
     public void StartAssignment(string keyName)
     {
-        Debug.Log(keyName);
         if (!waitingForKey)
         {
             StartCoroutine(AssignKey(keyName));
@@ -110,7 +109,6 @@ public class SetKeyMainMenu : MonoBehaviour
 
     public void SendText(Text text)
     {
-        Debug.Log(text);
         buttonText = text;
     }
 
