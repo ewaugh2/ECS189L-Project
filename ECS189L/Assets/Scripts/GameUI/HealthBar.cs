@@ -18,7 +18,7 @@ public class HealthBar : MonoBehaviour
     public void SetSize(float sizeNormalized)
     {
       bar.localScale = new Vector3(sizeNormalized, 1f);
-      float move = (1-sizeNormalized) * 100;
+      float move = (1-sizeNormalized) * 40;
       bar.localPosition = new Vector3(bar.localPosition.x - move, bar.localPosition.y);
       float red = (-200*sizeNormalized)+255;
       float green = (red*-1)+310;
