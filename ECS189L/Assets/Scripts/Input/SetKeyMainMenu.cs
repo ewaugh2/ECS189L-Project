@@ -18,18 +18,12 @@ public class SetKeyMainMenu : MonoBehaviour
 
     bool waitingForKey;
 
-    List<string> buttonList;
+    private static Dictionary<Transform, Text> transformTextDict = new Dictionary<Transform, Text>();
+    private static Dictionary<Transform, string> transformKeyDict = new Dictionary<Transform, string>();
 
     public void Start()
     {
         waitingForKey = false;
-
-        buttonList = new List<string>();
-        buttonList.Add("UpButton");
-        buttonList.Add("DownButton");
-        buttonList.Add("LeftButton");
-        buttonList.Add("RightButton");
-        buttonList.Add("AttackButton");
 
         controls = this.transform;
 
@@ -44,29 +38,47 @@ public class SetKeyMainMenu : MonoBehaviour
                 
                 if (buttonInit.name == "AttackButton")
                 {
-                    key = "Attack"+(i+1).ToString();
-                    buttonInit.GetComponentInChildren<Text>().text = InputManager.IM.buttonKeys[key].ToString();
+                    transformKeyDict[buttonInit] = "Attack"+(i+1).ToString();
+                    transformTextDict[buttonInit] = buttonInit.GetComponentInChildren<Text>();
+                    
+                    transformTextDict[buttonInit].text = InputManager.IM.buttonKeys[transformKeyDict[buttonInit]].ToString();
                 }
                 else if (buttonInit.name == "UpButton")
                 {
-                    key = "Up"+(i+1).ToString();
-                    buttonInit.GetComponentInChildren<Text>().text = InputManager.IM.buttonKeys[key].ToString();
+                    transformKeyDict[buttonInit] = "Up"+(i+1).ToString();
+                    transformTextDict[buttonInit] = buttonInit.GetComponentInChildren<Text>();
+                    
+                    transformTextDict[buttonInit].text = InputManager.IM.buttonKeys[transformKeyDict[buttonInit]].ToString();
                 }
                 else if (buttonInit.name == "DownButton")
                 {
-                    key = "Down"+(i+1).ToString();
-                    buttonInit.GetComponentInChildren<Text>().text = InputManager.IM.buttonKeys[key].ToString();
+                    transformKeyDict[buttonInit] = "Down"+(i+1).ToString();
+                    transformTextDict[buttonInit] = buttonInit.GetComponentInChildren<Text>();
+                    
+                    transformTextDict[buttonInit].text = InputManager.IM.buttonKeys[transformKeyDict[buttonInit]].ToString();
                 }
                 else if (buttonInit.name == "LeftButton")
                 {
-                    key = "Left"+(i+1).ToString();
-                    buttonInit.GetComponentInChildren<Text>().text = InputManager.IM.buttonKeys[key].ToString();
+                    transformKeyDict[buttonInit] = "Left"+(i+1).ToString();
+                    transformTextDict[buttonInit] = buttonInit.GetComponentInChildren<Text>();
+                    
+                    transformTextDict[buttonInit].text = InputManager.IM.buttonKeys[transformKeyDict[buttonInit]].ToString();
                 }
                 else if (buttonInit.name == "RightButton")
                 {
-                    key = "Right"+(i+1).ToString();
-                    buttonInit.GetComponentInChildren<Text>().text = InputManager.IM.buttonKeys[key].ToString();
+                    transformKeyDict[buttonInit] = "Right"+(i+1).ToString();
+                    transformTextDict[buttonInit] = buttonInit.GetComponentInChildren<Text>();
+                    
+                    transformTextDict[buttonInit].text = InputManager.IM.buttonKeys[transformKeyDict[buttonInit]].ToString();
                 }
+                else
+                {
+                    continue;
+                }
+                Transform transformCopy = buttonInit;
+
+                buttonInit.GetComponent<Button>().onClick.AddListener(() => SendText(transformTextDict[transformCopy]));
+                buttonInit.GetComponent<Button>().onClick.AddListener(() => StartAssignment(transformKeyDict[transformCopy]));
             }
         }
     }
@@ -89,6 +101,7 @@ public class SetKeyMainMenu : MonoBehaviour
 
     public void StartAssignment(string keyName)
     {
+        Debug.Log(keyName);
         if (!waitingForKey)
         {
             StartCoroutine(AssignKey(keyName));
@@ -97,6 +110,7 @@ public class SetKeyMainMenu : MonoBehaviour
 
     public void SendText(Text text)
     {
+        Debug.Log(text);
         buttonText = text;
     }
 

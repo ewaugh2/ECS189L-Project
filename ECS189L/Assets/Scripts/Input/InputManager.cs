@@ -10,15 +10,15 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        if (IM == null)
+        // if already exists
+        if (IM != null)
         {
-            DontDestroyOnLoad(gameObject);
-            IM = this;
+            return;
         }
-        else if (IM != this)
-        {
-            Destroy(gameObject);
-        }
+
+        // else
+        DontDestroyOnLoad(gameObject);
+        IM = this;
 
         buttonKeys = new Dictionary<string, KeyCode>();
 
