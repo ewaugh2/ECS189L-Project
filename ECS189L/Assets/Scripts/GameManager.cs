@@ -10,9 +10,12 @@ public class GameManager : MonoBehaviour
     //Spawners
     private GameObject playerSpawner;
     private GameObject zombieSpawner;
+    private List<GameObject> players = new List<GameObject>();
+    private List<GameObject> playersUi = new List<GameObject>();
 
     //Prefabs
     [SerializeField] public GameObject playerPrefab;
+    [SerializeField] public GameObject playerUi;
     [SerializeField] public GameObject zombiePrefab;
 
     //Game state
@@ -96,12 +99,47 @@ public class GameManager : MonoBehaviour
     {
         playerSpawner = new GameObject();
         playerSpawner.AddComponent<PlayerSpawner>();
-
         var spawner = playerSpawner.GetComponent<PlayerSpawner>();
-        spawner.setPrefab(playerPrefab);
+        spawner.setPrefab(playerPrefab, playerUi);
         for (int i = 0; i < numPlayers; i++)
         {
           spawner.spawnPlayer();
+        }
+        foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+         if(go.name == "Player(Clone)")
+         {
+           players.Add(go);
+         }
+         if(go.name == "PlayerUi(Clone)")
+         {
+           playersUi.Add(go);
+         }
+        }
+        var canvas = GameObject.Find("Canvas");
+        if (numPlayers == 2)
+        {
+          players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,1);
+          players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,1);
+          playersUi[1].transform.position = canvas.transform.localPosition - new Vector3(-150,-20,0);
+        }
+        else if (numPlayers == 3)
+        {
+          players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0.5f,0.5f,0.5f);
+          players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,0.5f);
+          players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,1);
+          playersUi[1].transform.position = canvas.transform.localPosition - new Vector3(-150,-20,0);
+          playersUi[2].transform.position = canvas.transform.localPosition - new Vector3(580,400,0);
+        }
+        else if (numPlayers == 4)
+        {
+          players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0.5f,0.5f,0.5f);
+          players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0.5f,0.5f,0.5f);
+          players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,0.5f);
+          players[3].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,0.5f);
+          playersUi[1].transform.position = canvas.transform.localPosition - new Vector3(-150,-20,0);
+          playersUi[2].transform.position = canvas.transform.localPosition - new Vector3(580,400,0);
+          playersUi[3].transform.position = canvas.transform.localPosition - new Vector3(-150,400,0);
         }
     }
 

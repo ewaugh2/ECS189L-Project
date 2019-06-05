@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         {
             if (left == 1)
             {
-                MoveDownLeft(); 
+                MoveDownLeft();
             }
             else if (right == 1)
             {
