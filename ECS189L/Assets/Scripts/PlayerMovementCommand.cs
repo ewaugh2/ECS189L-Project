@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovementCommand : ScriptableObject, IPlayerCommand
 {
-    private float Speed = 5;
+    private float Speed = 30;
     private Vector3 direction;
 
     static private float DIAGONAL_VALUE = 1.0f / Mathf.Sqrt(2);
@@ -83,7 +83,7 @@ public class PlayerMovementCommand : ScriptableObject, IPlayerCommand
     {
         var data = ScriptableObject.CreateInstance<PlayerMovementCommand>();
         data.Init(new Vector3(0, 0, 0));
-        return data;        
+        return data;
     }
 
 }
