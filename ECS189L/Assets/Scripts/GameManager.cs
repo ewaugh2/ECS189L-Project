@@ -116,20 +116,20 @@ public class GameManager : MonoBehaviour
            playersUi.Add(go);
          }
         }
-        var canvas = GameObject.Find("Canvas");
+        var map = GameObject.Find("Map");
         if (numPlayers == 2)
         {
           players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,1);
           players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,1);
-          playersUi[1].transform.position = canvas.transform.localPosition - new Vector3(-150,-20,0);
+          playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580,-20,0);
         }
         else if (numPlayers == 3)
         {
           players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0.5f,0.5f,0.5f);
           players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,0.5f);
           players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,1);
-          playersUi[1].transform.position = canvas.transform.localPosition - new Vector3(-150,-20,0);
-          playersUi[2].transform.position = canvas.transform.localPosition - new Vector3(580,400,0);
+          playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580,-20,0);
+          playersUi[2].transform.position = map.transform.localPosition - new Vector3(135,320,0);
         }
         else if (numPlayers == 4)
         {
@@ -137,9 +137,9 @@ public class GameManager : MonoBehaviour
           players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0.5f,0.5f,0.5f);
           players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,0.5f);
           players[3].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,0.5f);
-          playersUi[1].transform.position = canvas.transform.localPosition - new Vector3(-150,-20,0);
-          playersUi[2].transform.position = canvas.transform.localPosition - new Vector3(580,400,0);
-          playersUi[3].transform.position = canvas.transform.localPosition - new Vector3(-150,400,0);
+          playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580,-20,0);
+          playersUi[2].transform.position = map.transform.localPosition - new Vector3(135,320,0);
+          playersUi[3].transform.position = map.transform.localPosition - new Vector3(-580,320,0);
         }
     }
 
