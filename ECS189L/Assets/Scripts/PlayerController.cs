@@ -6,8 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public static int count = 1;
     public int ID;
+    private bool Active = false;
+    private const float DURATION = 0.4f;
+    private const float OFFSET = 0.2f;
+    private float ElapsedTime = 0.0f;
 
-    private Vector2 shootingDirection;
+    private Vector2 shootingDirection = new Vector2(0, 1);
 
     bool skip;
 
@@ -23,34 +27,42 @@ public class PlayerController : MonoBehaviour
     public void MoveUp()
     {
         PlayerMovementCommand.GetMoveUp().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     public void MoveDown()
     {
         PlayerMovementCommand.GetMoveDown().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 180);
     }
     public void MoveLeft()
     {
         PlayerMovementCommand.GetMoveLeft().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
     }
     public void MoveRight()
     {
         PlayerMovementCommand.GetMoveRight().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 270);
     }
     public void MoveUpRight()
     {
         PlayerMovementCommand.GetMoveUpRight().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 315);
     }
     public void MoveUpLeft()
     {
         PlayerMovementCommand.GetMoveUpLeft().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 45);
     }
     public void MoveDownRight()
     {
         PlayerMovementCommand.GetMoveDownRight().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 225);
     }
     public void MoveDownLeft()
     {
         PlayerMovementCommand.GetMoveDownLeft().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 135);
     }
     public void StopMovement()
     {
@@ -59,7 +71,14 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot(Vector2 shootingDirection)
     {
-        PlayerShootCommand.Shoot(shootingDirection).Execute(this.gameObject);
+        if(!this.Active)
+        {
+          this.gameObject.GetComponent<Animator>().SetBool("PlayerShoot", true);
+          this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
+          this.ElapsedTime = 0.0f;
+          this.Active = true;
+          PlayerShootCommand.Shoot(shootingDirection).Execute(this.gameObject);
+        }
     }
 
 
@@ -74,6 +93,9 @@ public class PlayerController : MonoBehaviour
         int attack = Input.GetKey(dictionary["Attack"+this.ID.ToString()]) ? 1 : 0;
 
         StopMovement();
+        this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", false);
+        this.gameObject.GetComponent<Animator>().SetBool("PlayerShoot", false);
+        this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", true);
 
         if (up + down + left + right > 2 || up + down + left + right == 0)
         {
@@ -89,24 +111,28 @@ public class PlayerController : MonoBehaviour
         {
             if (up == 1)
             {
-                if (left == 1)
-                {
-                    MoveUpLeft();
-                }
-                else if (right == 1)
-                {
-                    MoveUpRight();
-                }
-                else
-                {
-                    MoveUp();
-                }
+              this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", true);
+              this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
+              if (left == 1)
+              {
+                  MoveUpLeft();
+              }
+              else if (right == 1)
+              {
+                  MoveUpRight();
+              }
+              else
+              {
+                  MoveUp();
+              }
             }
             else if (down == 1)
             {
+              this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", true);
+              this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
                 if (left == 1)
                 {
-                    MoveDownLeft(); 
+                    MoveDownLeft();
                 }
                 else if (right == 1)
                 {
@@ -119,11 +145,15 @@ public class PlayerController : MonoBehaviour
             }
             else if (left == 1)
             {
-                MoveLeft();
+              this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", true);
+              this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
+              MoveLeft();
             }
             else if (right == 1)
             {
-                MoveRight();
+              this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", true);
+              this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
+              MoveRight();
             }
 
             shootingDirection = new Vector2(right - left, up - down);
@@ -132,6 +162,22 @@ public class PlayerController : MonoBehaviour
         if (attack == 1)
         {
             Shoot(shootingDirection);
+        }
+
+        // Check if can shoot
+        if (this.Active)
+        {
+            this.ElapsedTime += Time.deltaTime;
+            if (this.ElapsedTime > OFFSET)
+            {
+
+                if (this.ElapsedTime > DURATION || !this.Active)
+                {
+                    this.Active = false;
+
+                }
+
+            }
         }
     }
 
