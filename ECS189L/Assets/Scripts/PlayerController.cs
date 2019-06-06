@@ -17,34 +17,42 @@ public class PlayerController : MonoBehaviour
     public void MoveUp()
     {
         PlayerMovementCommand.GetMoveUp().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     public void MoveDown()
     {
         PlayerMovementCommand.GetMoveDown().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 180);
     }
     public void MoveLeft()
     {
         PlayerMovementCommand.GetMoveLeft().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
     }
     public void MoveRight()
     {
         PlayerMovementCommand.GetMoveRight().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 270);
     }
     public void MoveUpRight()
     {
         PlayerMovementCommand.GetMoveUpRight().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 315);
     }
     public void MoveUpLeft()
     {
         PlayerMovementCommand.GetMoveUpLeft().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 45);
     }
     public void MoveDownRight()
     {
         PlayerMovementCommand.GetMoveDownRight().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 225);
     }
     public void MoveDownLeft()
     {
         PlayerMovementCommand.GetMoveDownLeft().Execute(this.gameObject);
+        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 135);
     }
     public void StopMovement()
     {
@@ -62,6 +70,8 @@ public class PlayerController : MonoBehaviour
         int right = Input.GetKey(dictionary["Right"+this.ID.ToString()]) ? 1 : 0;
 
         StopMovement();
+        this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", false);
+        this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", true);
 
         if (up + down + left + right > 2)
         {
@@ -69,6 +79,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (up == 1)
         {
+          this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", true);
+          this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
             if (left == 1)
             {
                 MoveUpLeft();
@@ -84,6 +96,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (down == 1)
         {
+          this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", true);
+          this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
             if (left == 1)
             {
                 MoveDownLeft();
@@ -99,10 +113,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (left == 1)
         {
+            this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", true);
+            this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
             MoveLeft();
         }
         else if (right == 1)
         {
+            this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", true);
+            this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
             MoveRight();
         }
     }

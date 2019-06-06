@@ -8955,7 +8955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84100ff8bbfa4bd42848b38b67ea1006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4291209759536210175, guid: cce0be8ebd8634361a70f8aa4c25540c,
+  playerPrefab: {fileID: 7681483366794868233, guid: cce0be8ebd8634361a70f8aa4c25540c,
     type: 3}
   playerUi: {fileID: 1357508133436859573, guid: 93962dff03e2141858c8737825221a27,
     type: 3}
