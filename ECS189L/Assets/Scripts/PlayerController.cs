@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
     {
       if(collision.gameObject.name == "Bullet(Clone)")
       {
-        this.health -= 10;
+        this.health -= 10f;
         foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
         {
          if(go.name == "PlayerUi(Clone)")
