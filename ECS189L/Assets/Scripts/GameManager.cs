@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject playerUi;
     [SerializeField] public GameObject zombiePrefab;
 
+    //Tags
+    private string zombiePortalTag = "ZombiePortal";
+
     //Game state
     private enum GameState
     {
@@ -98,6 +101,7 @@ public class GameManager : MonoBehaviour
     private void createSpawners(int numPlayers)
     {
         createPlayerSpawners(numPlayers);
+        createZombieSpawners();
     }
 
     private void createPlayerSpawners(int numPlayers)
@@ -150,7 +154,14 @@ public class GameManager : MonoBehaviour
 
     private void createZombieSpawners()
     {
-       
+        var zombiePortals = GameObject.FindGameObjectsWithTag(zombiePortalTag);
+
+        foreach(GameObject zombieportal in zombiePortals)
+        {
+            zombieportal.AddComponent<ZombieSpawner>();
+            var zombiespawner = zombieportal.GetComponent<ZombieSpawner>();
+            zombiespawner.setPrefab(zombiePrefab);
+        }
     }
 
     //Change game state

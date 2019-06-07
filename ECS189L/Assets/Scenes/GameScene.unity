@@ -3986,7 +3986,7 @@ GameObject:
   - component: {fileID: 419287734}
   m_Layer: 4
   m_Name: Portal1
-  m_TagString: Untagged
+  m_TagString: ZombiePortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5038,10 +5038,9 @@ GameObject:
   - component: {fileID: 558973243}
   - component: {fileID: 558973245}
   - component: {fileID: 558973244}
-  - component: {fileID: 558973246}
   m_Layer: 4
   m_Name: Portal1
-  m_TagString: Untagged
+  m_TagString: ZombiePortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5127,20 +5126,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &558973246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558973242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382a0efc3d394db4d975fe178367b23f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombiePrefab: {fileID: 5888010556229130094, guid: 888ebd428d7184bb494cff9ad0326ace,
-    type: 3}
 --- !u!1 &562251227
 GameObject:
   m_ObjectHideFlags: 0
@@ -6135,7 +6120,7 @@ GameObject:
   - component: {fileID: 665943993}
   m_Layer: 4
   m_Name: Portal2
-  m_TagString: Untagged
+  m_TagString: ZombiePortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7680,7 +7665,7 @@ GameObject:
   - component: {fileID: 790789160}
   m_Layer: 4
   m_Name: Portal2
-  m_TagString: Untagged
+  m_TagString: ZombiePortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9757,7 +9742,7 @@ GameObject:
   - component: {fileID: 1076716946}
   m_Layer: 4
   m_Name: Portal1
-  m_TagString: Untagged
+  m_TagString: ZombiePortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10295,7 +10280,7 @@ GameObject:
   - component: {fileID: 1166077892}
   m_Layer: 4
   m_Name: Portal3
-  m_TagString: Untagged
+  m_TagString: ZombiePortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10522,7 +10507,7 @@ GameObject:
   - component: {fileID: 1207488448}
   m_Layer: 4
   m_Name: Portal3
-  m_TagString: Untagged
+  m_TagString: ZombiePortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16365,7 +16350,7 @@ GameObject:
   - component: {fileID: 1877390669}
   m_Layer: 4
   m_Name: Portal3
-  m_TagString: Untagged
+  m_TagString: ZombiePortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16512,7 +16497,7 @@ GameObject:
   - component: {fileID: 1886693584}
   m_Layer: 4
   m_Name: Portal2
-  m_TagString: Untagged
+  m_TagString: ZombiePortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
