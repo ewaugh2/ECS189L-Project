@@ -65,7 +65,6 @@ public class ZombieSpawner : MonoBehaviour
     private void spawnZombie()
     {
         var pos = this.gameObject.transform.position;
-        pos.x += 20;
         var zombie = (GameObject)Instantiate(zombiePrefab, pos, Quaternion.identity);
     }
 }
