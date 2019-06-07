@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
 {
+    const float SPAWN_INTERVAL = 10.0f;
+    const float SPAWN_INCREASE_INTERVAL = 60.0f;
+    const int SPAWN_INCREASE_AMOUNT = 1;
+
     private GameObject zombiePrefab;
-    float timeToNextSpawn = 10.0f;
-    float timeToSpawnIncrease = 60.0f;
+    float timeToNextSpawn = SPAWN_INTERVAL;
+    float timeToSpawnIncrease = SPAWN_INCREASE_INTERVAL;
     int numZombiesToSpawn = 1;
     int numZombies = 0;
 
@@ -29,7 +33,7 @@ public class ZombieSpawner : MonoBehaviour
 
         if(timeToNextSpawn <= 0)
         {
-            timeToNextSpawn = 10.0f;
+            timeToNextSpawn = SPAWN_INTERVAL;
 
             for (int i = 0; i < numZombiesToSpawn; i++)
             {
@@ -39,9 +43,9 @@ public class ZombieSpawner : MonoBehaviour
 
         if(timeToSpawnIncrease <= 0)
         {
-            timeToSpawnIncrease = 60.0f;
+            timeToSpawnIncrease = SPAWN_INCREASE_INTERVAL;
 
-            numZombiesToSpawn += 1;
+            numZombiesToSpawn += SPAWN_INCREASE_AMOUNT;
 
             Debug.Log(numZombies);
         }
