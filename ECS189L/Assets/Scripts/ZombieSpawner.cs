@@ -67,6 +67,5 @@ public class ZombieSpawner : MonoBehaviour
         var pos = this.gameObject.transform.position;
         pos.x += 20;
         var zombie = (GameObject)Instantiate(zombiePrefab, pos, Quaternion.identity);
-        numZombies++;
     }
 }
