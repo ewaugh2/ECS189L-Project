@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         skip = false;
-        ammunition = 30;
+        ammunition = 100;
 
         int auxID = count;
         this.ID = auxID;

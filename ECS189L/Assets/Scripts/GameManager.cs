@@ -169,8 +169,8 @@ public class GameManager : MonoBehaviour
             players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.5f, 0.5f);
             players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 0.5f);
             players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f, 0, 0.5f, 1);
-            playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580, -20, 0);
-            playersUi[2].transform.position = map.transform.localPosition - new Vector3(135, 320, 0);
+            playersUi[2].transform.position = map.transform.localPosition - new Vector3(-580, -20, 0);
+            playersUi[1].transform.position = map.transform.localPosition - new Vector3(135, 320, 0);
         }
         else if (numPlayers == 4)
         {
