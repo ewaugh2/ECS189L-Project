@@ -22,6 +22,7 @@ public class PlayerShootCommand : ScriptableObject, IPlayerCommand
                                     0);
 
         var projectile = (GameObject) Instantiate(bulletPrefab, Player.transform.position + spawnPosition, Player.transform.rotation);
+        projectile.GetComponent<BulletController>().PlayerID = gameObject.GetComponent<PlayerController>().ID;
         var projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
 
         projectileRigidBody.velocity = new Vector2(Speed * shootingDirection.x,
