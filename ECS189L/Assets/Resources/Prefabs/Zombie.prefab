@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aae03e8b51dd574f81387fb9612041d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieAgent: {fileID: 0}
+  zombie3D: {fileID: 0}
 --- !u!50 &-7862404419127598602
 Rigidbody2D:
   serializedVersion: 4

@@ -26,7 +26,7 @@ public class ZombieController : MonoBehaviour
 	    	var zombie = zombie3D.transform;
 
 	    	// Copy location
-	        this.gameObject.transform.position = new Vector3(zombie.position.x, zombie.position.y);
+	        this.gameObject.transform.position = new Vector3(zombie.position.x, zombie.position.y, -0.5f);
 	        // Copy rotation
 	        this.gameObject.transform.rotation = zombie.transform.rotation;
 	        this.gameObject.transform.Rotate(90, 0, 0);

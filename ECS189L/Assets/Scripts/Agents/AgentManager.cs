@@ -20,14 +20,15 @@ public class AgentManager : MonoBehaviour
 		Debug.Log("Added agent " + (agents.Count + 1));
 
 		// Create agent
-		var agent = Instantiate(agentPrefab) as GameObject;
+		Vector3 position = new Vector3(owner.transform.position.x, owner.transform.position.y, 180);
+		var agent = Instantiate(agentPrefab, position, owner.transform.rotation) as GameObject;
 		// Set agent position
 		agent.transform.SetParent(this.gameObject.transform, false);
 		//
-		Debug.Log("Zombie created in " + agent.transform.position);
-		Debug.Log("Zombie 2D in " + owner.transform.position);
-		agent.transform.position = new Vector3(owner.transform.position.x, owner.transform.position.y, 150);
-		Debug.Log("Zombie moved in " + agent.transform.position + "\n");
+		// Debug.Log("Zombie created in " + agent.transform.position);
+		// Debug.Log("Zombie 2D in " + owner.transform.position);
+		// agent.transform.position = new Vector3(owner.transform.position.x, owner.transform.position.y, 150);
+		// Debug.Log("Zombie moved in " + agent.transform.position + "\n");
 		// Save pair in dictionary
 		agents[owner] = agent;
 		return agent;
@@ -49,6 +50,6 @@ public class AgentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
