@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    private static ZombieSpawner instance = null;
+    private GameObject zombiePrefab;
 
     private ZombieSpawner()
     {
@@ -23,14 +23,16 @@ public class ZombieSpawner : MonoBehaviour
         
     }
 
-    //Get instance (create if it doesn't already exist)
-    public static ZombieSpawner getInstance()
+    //Set the prefab
+    public void setPrefab(GameObject prefab)
     {
-        if (instance == null)
-        {
-            instance = new ZombieSpawner();
-        }
+        zombiePrefab = prefab;
+    }
 
-        return instance;
+    //Spawn a zombie
+    public void spawnZombie()
+    {
+        var spawnpos = new Vector3(0, 0, 0);
+        var zombie = (GameObject)Instantiate(zombiePrefab, spawnpos, Quaternion.identity); 
     }
 }
