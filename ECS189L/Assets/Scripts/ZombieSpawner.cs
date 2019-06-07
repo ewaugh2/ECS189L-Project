@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    private GameObject zombiePrefab;
+    [SerializeField] public GameObject zombiePrefab;
 
     private ZombieSpawner()
     {
@@ -14,7 +14,7 @@ public class ZombieSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
@@ -26,13 +26,14 @@ public class ZombieSpawner : MonoBehaviour
     //Set the prefab
     public void setPrefab(GameObject prefab)
     {
-        zombiePrefab = prefab;
+        
     }
 
     //Spawn a zombie
-    public void spawnZombie()
+    private void spawnZombie()
     {
-        var spawnpos = new Vector3(0, 0, 0);
-        var zombie = (GameObject)Instantiate(zombiePrefab, spawnpos, Quaternion.identity); 
+        var pos = this.gameObject.transform.position;
+        pos.x += 20;
+        var zombie = (GameObject)Instantiate(zombiePrefab, pos, Quaternion.identity);
     }
 }

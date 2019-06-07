@@ -148,6 +148,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void createZombieSpawners()
+    {
+       
+    }
+
     //Change game state
     private void setGameState(GameState state)
     {
