@@ -7,21 +7,24 @@ public class HealthBar : MonoBehaviour
 {
 
     private Transform bar;
-    private GameObject health;
 
     private void Start()
     {
-        bar = transform.Find("BarSprite");
-        health = GameObject.Find("BarSprite");
+        bar = this.gameObject.transform.GetChild(2).transform;
     }
+
+
+    private float currentSize = 1;
 
     public void SetSize(float sizeNormalized)
     {
       bar.localScale = new Vector3(sizeNormalized, 1f);
-      float move = (1-sizeNormalized) * 5.4f;
+      float move = (currentSize-sizeNormalized) * 5.4f;
       bar.localPosition = new Vector3(bar.localPosition.x - move, bar.localPosition.y);
       float red = (-200*sizeNormalized)+255;
       float green = (red*-1)+310;
-      health.GetComponent<Image>().color = new Color32((byte)red,(byte)green,0,255);
+      bar.GetComponent<Image>().color = new Color32((byte)red,(byte)green,0,255);
+      currentSize = sizeNormalized;
     }
+
 }
