@@ -97,49 +97,54 @@ public class GameManager : MonoBehaviour
     //Create spawners
     private void createSpawners(int numPlayers)
     {
+        createPlayerSpawners(numPlayers);
+    }
+
+    private void createPlayerSpawners(int numPlayers)
+    {
         playerSpawner = new GameObject();
         playerSpawner.AddComponent<PlayerSpawner>();
         var spawner = playerSpawner.GetComponent<PlayerSpawner>();
         spawner.setPrefab(playerPrefab, playerUi);
         for (int i = 0; i < numPlayers; i++)
         {
-          spawner.spawnPlayer();
+            spawner.spawnPlayer();
         }
-        foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
         {
-         if(go.name == "Player(Clone)")
-         {
-           players.Add(go);
-         }
-         if(go.name == "PlayerUi(Clone)")
-         {
-           playersUi.Add(go);
-         }
+            if (go.name == "Player(Clone)")
+            {
+                players.Add(go);
+            }
+            if (go.name == "PlayerUi(Clone)")
+            {
+                playersUi.Add(go);
+            }
         }
         var map = GameObject.Find("Map");
         if (numPlayers == 2)
         {
-          players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,1);
-          players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,1);
-          playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580,-20,0);
+            players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 1);
+            players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f, 0, 0.5f, 1);
+            playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580, -20, 0);
         }
         else if (numPlayers == 3)
         {
-          players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0.5f,0.5f,0.5f);
-          players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,0.5f);
-          players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,1);
-          playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580,-20,0);
-          playersUi[2].transform.position = map.transform.localPosition - new Vector3(135,320,0);
+            players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+            players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 0.5f);
+            players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f, 0, 0.5f, 1);
+            playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580, -20, 0);
+            playersUi[2].transform.position = map.transform.localPosition - new Vector3(135, 320, 0);
         }
         else if (numPlayers == 4)
         {
-          players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0.5f,0.5f,0.5f);
-          players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0.5f,0.5f,0.5f);
-          players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,0.5f);
-          players[3].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,0.5f);
-          playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580,-20,0);
-          playersUi[2].transform.position = map.transform.localPosition - new Vector3(135,320,0);
-          playersUi[3].transform.position = map.transform.localPosition - new Vector3(-580,320,0);
+            players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+            players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+            players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 0.5f);
+            players[3].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+            playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580, -20, 0);
+            playersUi[2].transform.position = map.transform.localPosition - new Vector3(135, 320, 0);
+            playersUi[3].transform.position = map.transform.localPosition - new Vector3(-580, 320, 0);
         }
     }
 
