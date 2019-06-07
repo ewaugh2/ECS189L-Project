@@ -196,10 +196,12 @@ public class PlayerController : MonoBehaviour
              go.transform.GetChild(1).GetComponent<HealthBar>().SetSize(this.health/100);
            }
          }
-         if(this.health == 0)
-         {
-           Destroy(this.gameObject);
-         }
+       }
+       if(this.health == 0)
+       {
+
+         this.gameObject.transform.GetChild(0).parent = GameObject.Find("PlayerUi(Clone)").transform;
+         Destroy(this.gameObject);
        }
       }
     }
