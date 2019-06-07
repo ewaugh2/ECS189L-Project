@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class ZombieController : MonoBehaviour
 {
-	[SerializeField] private GameObject zombieAgent;
+	[SerializeField] private GameObject zombie3D;
 
     // Start is called before the first frame update
     void Start()
     {
+        zombie3D = AgentManager.GetInstance().AddAgent(this.gameObject);
+    }
 
+    // Method to set the assigned agent
+    public void SetAgent(GameObject newAgent)
+    {
+        this.zombie3D = newAgent;
     }
 
     // Update is called once per frame
     void Update()
     {
-    	var zombie = zombieAgent.transform;
+    	if(zombie3D.transform.position.x != 0)
+    	{
+	    	var zombie = zombie3D.transform;
 
-    	Debug.Log("Move to " + zombie.position);
+	    	// Copy location
+	        this.gameObject.transform.position = new Vector3(zombie.position.x, zombie.position.y);
+	        // Copy rotation
+	        this.gameObject.transform.rotation = zombie.transform.rotation;
+	        this.gameObject.transform.Rotate(90, 0, 0);
+    	}
 
-        this.gameObject.transform.position = new Vector2(zombie.position.x, zombie.position.y);
-        this.gameObject.transform.rotation = Quaternion.Euler(0, 0, zombie.rotation.z);
     }
 }

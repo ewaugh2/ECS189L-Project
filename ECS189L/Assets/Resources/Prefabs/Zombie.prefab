@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7424166911509628443, guid: 94b2920a1dd209644a7040dd577d6d1d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -115,8 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aae03e8b51dd574f81387fb9612041d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieAgent: {fileID: 1710534854375966605, guid: 1bd3bead7fa65ce40923567949f3a7a5,
-    type: 3}
+  zombieAgent: {fileID: 0}
 --- !u!50 &-7862404419127598602
 Rigidbody2D:
   serializedVersion: 4
@@ -125,11 +124,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5888010556229130094}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
