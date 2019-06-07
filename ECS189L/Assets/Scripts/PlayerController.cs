@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
                         Transform child = go.transform.GetChild(i);
                         if (child.name == "Ammo")
                         {
-                            child.gameObject.GetComponent<TextMeshProUGUI>().text = ammunition.ToString();
+                            child.gameObject.GetComponent<TextMeshProUGUI>().text = "x " + ammunition.ToString();
                         }
                     }
                 }
