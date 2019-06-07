@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ZombieAgent : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class ZombieAgent : MonoBehaviour
     void Update()
     {
         // Choose player to attack
-        var players = GameManager.GetIstance().GetAlivePlayers();
+        var players = GameManager.getInstance().GetAlivePlayers();
 
         // Current position
         var position = this.gameObject.transform.position;
@@ -25,13 +26,18 @@ public class ZombieAgent : MonoBehaviour
         GameObject closest = null;
         foreach(var player in players)
         {
-        	if(closest == null || Vector.distance(position, player.transform.position) < Vector.distance(position, player.transform.position))
+        	if(closest == null || Vector3.Distance(position, player.transform.position) < Vector3.Distance(position, closest.transform.position))
         	{
         		closest = player;
         	}
         }
 
         // Set move to location
-        agent.SetDestination(new Vector3(player.transform.position.x, position.y, player.transform.position.y));
+
+
+        var destination = new Vector3(closest.transform.position.x, closest.transform.position.y, position.z);
+
+        agent.SetDestination(destination);
+        Debug.Log("Zombie location: " + position + "\nPlayer location: " + closest.transform.position + "\nDestination: " + destination + "\n");
     }
 }

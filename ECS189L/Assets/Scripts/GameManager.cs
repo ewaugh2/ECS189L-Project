@@ -82,6 +82,11 @@ public class GameManager : MonoBehaviour
       }
     }
 
+    public List<GameObject> GetAlivePlayers()
+    {
+      return currentPlayers;
+    }
+
     //Return game manager instance (create one if it doesn't exist)
     public static GameManager getInstance()
     {
