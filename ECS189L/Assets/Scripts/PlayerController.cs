@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,9 +17,12 @@ public class PlayerController : MonoBehaviour
 
     bool skip;
 
+    private int ammunition;
+
     void Start()
     {
         skip = false;
+        ammunition = 30;
 
         int auxID = count;
         this.ID = auxID;
@@ -74,11 +78,36 @@ public class PlayerController : MonoBehaviour
     {
         if(!this.Active)
         {
-          this.gameObject.GetComponent<Animator>().SetBool("PlayerShoot", true);
-          this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
-          this.ElapsedTime = 0.0f;
-          this.Active = true;
-          PlayerShootCommand.Shoot(shootingDirection).Execute(this.gameObject);
+            DecreaseAmmo();
+
+            this.gameObject.GetComponent<Animator>().SetBool("PlayerShoot", true);
+            this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
+            this.ElapsedTime = 0.0f;
+            this.Active = true;
+            PlayerShootCommand.Shoot(shootingDirection).Execute(this.gameObject);
+        }
+    }
+
+    private void DecreaseAmmo()
+    {
+        ammunition -= 1;
+
+        foreach(GameObject go in Object.FindObjectsOfType(typeof(GameObject)))
+        {
+            if(go.name == "PlayerUi(Clone)")
+            {
+                if (go.GetComponent<PlayerUi>().ID == this.ID)
+                {
+                    for (int i = 0; i < go.transform.childCount; i++)
+                    {
+                        Transform child = go.transform.GetChild(i);
+                        if (child.name == "Ammo")
+                        {
+                            child.gameObject.GetComponent<TextMeshProUGUI>().text = ammunition.ToString();
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -160,7 +189,7 @@ public class PlayerController : MonoBehaviour
             shootingDirection = new Vector2(right - left, up - down);
         }
 
-        if (attack == 1)
+        if (attack == 1 && ammunition > 0)
         {
             Shoot(shootingDirection);
         }
@@ -171,37 +200,36 @@ public class PlayerController : MonoBehaviour
             this.ElapsedTime += Time.deltaTime;
             if (this.ElapsedTime > OFFSET)
             {
-
                 if (this.ElapsedTime > DURATION || !this.Active)
                 {
                     this.Active = false;
-
                 }
-
             }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-      if(collision.gameObject.name == "Bullet(Clone)")
-      {
-        this.health -= 10f;
-        foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        if(collision.gameObject.name == "Bullet(Clone)" &&
+            collision.gameObject.GetComponent<BulletController>().PlayerID != ID)
         {
-         if(go.name == "PlayerUi(Clone)")
-         {
-           if (go.GetComponent<PlayerUi>().ID == this.ID)
-           {
-             go.transform.GetChild(1).GetComponent<HealthBar>().SetSize(this.health/100);
-           }
-         }
-         if(this.health == 0)
-         {
-           Destroy(this.gameObject);
-         }
-       }
-      }
+            this.health -= 10f;
+
+            foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+            {
+                if(go.name == "PlayerUi(Clone)")
+                {
+                    if (go.GetComponent<PlayerUi>().ID == this.ID)
+                    {
+                        go.transform.GetChild(1).GetComponent<HealthBar>().SetSize(this.health/100);
+                    }
+                }
+                if(this.health == 0)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+        }
     }
 
 }
