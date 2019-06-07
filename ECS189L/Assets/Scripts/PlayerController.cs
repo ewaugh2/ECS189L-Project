@@ -213,23 +213,39 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.name == "Bullet(Clone)" &&
             collision.gameObject.GetComponent<BulletController>().PlayerID != ID)
         {
-            this.health -= 10f;
-
-            foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+           this.health -= 10f;
+           foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+           {
+             if(go.name == "PlayerUi(Clone)")
+             {
+               if (go.GetComponent<PlayerUi>().ID == this.ID)
+               {
+                 go.transform.GetChild(1).GetComponent<HealthBar>().SetSize(this.health/100);
+               }
+             }
+           }
+         if(this.health == 0)
+         {
+           foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+           {
+            if(go.name == "PlayerUi(Clone)")
             {
-                if(go.name == "PlayerUi(Clone)")
-                {
-                    if (go.GetComponent<PlayerUi>().ID == this.ID)
-                    {
-                        go.transform.GetChild(1).GetComponent<HealthBar>().SetSize(this.health/100);
-                    }
-                }
-                if(this.health == 0)
-                {
-                    Destroy(this.gameObject);
-                }
+              if (go.GetComponent<PlayerUi>().ID == ID)
+              {
+                int newScore = int.Parse(go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text)-100;
+                go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = newScore.ToString();
+                SharedInfo.PlayerScores[ID] = newScore.ToString();
+              }
+              if (go.GetComponent<PlayerUi>().ID == collision.gameObject.GetComponent<BulletController>().PlayerID)
+              {
+                int newScore = int.Parse(go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text)+100;
+                go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = newScore.ToString();
+              }
             }
-        }
+          }
+           this.gameObject.transform.GetChild(0).parent = GameObject.Find("PlayerUi(Clone)").transform;
+           Destroy(this.gameObject);
+       }
+      }
     }
-
 }

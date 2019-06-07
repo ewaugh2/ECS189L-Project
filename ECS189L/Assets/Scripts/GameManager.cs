@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class GameManager : MonoBehaviour
     private GameObject zombieSpawner;
     private List<GameObject> players = new List<GameObject>();
     private List<GameObject> playersUi = new List<GameObject>();
+    private List<GameObject> currentPlayers = new List<GameObject>();
 
     //Prefabs
     [SerializeField] public GameObject playerPrefab;
@@ -66,7 +69,28 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      currentPlayers = new List<GameObject>();
+      foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+      {
+       if(go.name == "Player(Clone)")
+       {
+         currentPlayers.Add(go);
+       }
+      }
+      if(((currentPlayers.Count <= 1) && numPlayers != 1) || ((currentPlayers.Count == 0) && numPlayers == 1))
+      {
+        foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+         if(go.name == "PlayerUi(Clone)")
+         {
+           if (go.GetComponent<PlayerUi>().ID == currentPlayers[0].GetComponent<PlayerController>().ID)
+           {
+             SharedInfo.PlayerScores[currentPlayers[0].GetComponent<PlayerController>().ID] = go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
+           }
+         }
+        }
+        SceneManager.LoadScene(0);
+      }
     }
 
     //Return game manager instance (create one if it doesn't exist)
@@ -126,8 +150,8 @@ public class GameManager : MonoBehaviour
         else if (numPlayers == 3)
         {
           players[0].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0.5f,0.5f,0.5f);
-          players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,0.5f);
-          players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,1);
+          players[2].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0,0,0.5f,0.5f);
+          players[1].transform.GetChild(0).GetComponent<Camera>().rect = new Rect(0.5f,0,0.5f,1);
           playersUi[1].transform.position = map.transform.localPosition - new Vector3(-580,-20,0);
           playersUi[2].transform.position = map.transform.localPosition - new Vector3(135,320,0);
         }
