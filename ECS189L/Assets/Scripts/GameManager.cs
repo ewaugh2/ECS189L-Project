@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -76,8 +77,18 @@ public class GameManager : MonoBehaviour
          currentPlayers.Add(go);
        }
       }
-      if(((currentPlayers.Count == 1) && numPlayers != 1) || ((currentPlayers.Count == 0) && numPlayers == 1))
+      if(((currentPlayers.Count <= 1) && numPlayers != 1) || ((currentPlayers.Count == 0) && numPlayers == 1))
       {
+        foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+         if(go.name == "PlayerUi(Clone)")
+         {
+           if (go.GetComponent<PlayerUi>().ID == currentPlayers[0].GetComponent<PlayerController>().ID)
+           {
+             SharedInfo.PlayerScores[currentPlayers[0].GetComponent<PlayerController>().ID] = go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
+           }
+         }
+        }
         SceneManager.LoadScene(0);
       }
     }

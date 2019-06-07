@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -199,7 +200,18 @@ public class PlayerController : MonoBehaviour
        }
        if(this.health == 0)
        {
-
+         foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+         {
+          if(go.name == "PlayerUi(Clone)")
+          {
+            if (go.GetComponent<PlayerUi>().ID == ID)
+            {
+              int newScore = int.Parse(go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text)-200;
+              go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = newScore.ToString();
+              SharedInfo.PlayerScores[ID] = newScore.ToString();
+            }
+          }
+        }
          this.gameObject.transform.GetChild(0).parent = GameObject.Find("PlayerUi(Clone)").transform;
          Destroy(this.gameObject);
        }
