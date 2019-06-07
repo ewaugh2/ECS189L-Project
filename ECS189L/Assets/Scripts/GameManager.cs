@@ -86,9 +86,12 @@ public class GameManager : MonoBehaviour
         {
          if(go.name == "PlayerUi(Clone)")
          {
-           if (go.GetComponent<PlayerUi>().ID == currentPlayers[0].GetComponent<PlayerController>().ID)
+           if (numPlayers != 1)
            {
-             SharedInfo.PlayerScores[currentPlayers[0].GetComponent<PlayerController>().ID] = go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
+             if (go.GetComponent<PlayerUi>().ID == currentPlayers[0].GetComponent<PlayerController>().ID)
+             {
+               SharedInfo.PlayerScores[currentPlayers[0].GetComponent<PlayerController>().ID] = go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text;
+             }
            }
          }
         }

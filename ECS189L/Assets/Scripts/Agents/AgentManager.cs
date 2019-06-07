@@ -39,6 +39,12 @@ public class AgentManager : MonoBehaviour
 		return agents.Remove(owner);
 	}
 
+	public bool KillZombie(GameObject owner)
+	{
+		Destroy(agents[owner]);
+		return RemoveAgent(owner);
+	}
+
     // Awake is called before Start
 
     void Awake()
