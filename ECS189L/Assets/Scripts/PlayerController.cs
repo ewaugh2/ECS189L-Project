@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private const float DURATION = 0.4f;
     private const float OFFSET = 0.2f;
     private float ElapsedTime = 0.0f;
+    private float health = 100.0f;
 
     private Vector2 shootingDirection = new Vector2(0, 1);
 
@@ -179,6 +180,28 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+      if(collision.gameObject.name == "Bullet(Clone)")
+      {
+        this.health -= 10;
+        foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+         if(go.name == "PlayerUi(Clone)")
+         {
+           if (go.GetComponent<PlayerUi>().ID == this.ID)
+           {
+             go.transform.GetChild(1).GetComponent<HealthBar>().SetSize(this.health/100);
+           }
+         }
+         if(this.health == 0)
+         {
+           Destroy(this.gameObject);
+         }
+       }
+      }
     }
 
 }
