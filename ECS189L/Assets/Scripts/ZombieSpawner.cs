@@ -28,10 +28,16 @@ public class ZombieSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        spawnUpdate();
+    }
+
+    //Update spawn timers, spawn if timers are up
+    private void spawnUpdate()
+    {
         timeToNextSpawn -= Time.deltaTime;
         timeToSpawnIncrease -= Time.deltaTime;
 
-        if(timeToNextSpawn <= 0)
+        if (timeToNextSpawn <= 0)
         {
             timeToNextSpawn = SPAWN_INTERVAL;
 
@@ -41,13 +47,11 @@ public class ZombieSpawner : MonoBehaviour
             }
         }
 
-        if(timeToSpawnIncrease <= 0)
+        if (timeToSpawnIncrease <= 0)
         {
             timeToSpawnIncrease = SPAWN_INCREASE_INTERVAL;
 
             numZombiesToSpawn += SPAWN_INCREASE_AMOUNT;
-
-            Debug.Log(numZombies);
         }
     }
 
