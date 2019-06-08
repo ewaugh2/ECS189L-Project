@@ -5,6 +5,9 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    private const float ZOMBIE_HIT_INTERVAL = 1f;
+    private float sinceLastHit = 0f;
+
     public static int count = 1;
     public int ID;
     private bool Active = false;
@@ -22,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         skip = false;
-        ammunition = 30;
+        ammunition = 100;
 
         int auxID = count;
         this.ID = auxID;
@@ -122,6 +125,9 @@ public class PlayerController : MonoBehaviour
         int right = Input.GetKey(dictionary["Right"+this.ID.ToString()]) ? 1 : 0;
         int attack = Input.GetKey(dictionary["Attack"+this.ID.ToString()]) ? 1 : 0;
 
+        // zombie timer
+        sinceLastHit += Time.deltaTime;
+
         StopMovement();
         this.gameObject.GetComponent<Animator>().SetBool("PlayerWalk", false);
         this.gameObject.GetComponent<Animator>().SetBool("PlayerShoot", false);
@@ -208,6 +214,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+      OnCollisionEnter2D(collision);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.name == "Bullet(Clone)" &&
@@ -224,28 +235,47 @@ public class PlayerController : MonoBehaviour
                }
              }
            }
-         if(this.health == 0)
+         }
+         if(collision.gameObject.name == "Zombie(Clone)" && sinceLastHit >= ZOMBIE_HIT_INTERVAL)
          {
-           foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
-           {
-            if(go.name == "PlayerUi(Clone)")
+           sinceLastHit = 0f;
+            this.health -= 40f;
+            foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
             {
-              if (go.GetComponent<PlayerUi>().ID == ID)
+              if(go.name == "PlayerUi(Clone)")
               {
-                int newScore = int.Parse(go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text)-100;
-                go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = newScore.ToString();
-                SharedInfo.PlayerScores[ID] = newScore.ToString();
-              }
-              if (go.GetComponent<PlayerUi>().ID == collision.gameObject.GetComponent<BulletController>().PlayerID)
-              {
-                int newScore = int.Parse(go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text)+100;
-                go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = newScore.ToString();
+                if (go.GetComponent<PlayerUi>().ID == this.ID)
+                {
+                  go.transform.GetChild(1).GetComponent<HealthBar>().SetSize(this.health/100);
+                }
               }
             }
           }
-           this.gameObject.transform.GetChild(0).parent = GameObject.Find("PlayerUi(Clone)").transform;
-           Destroy(this.gameObject);
+      if(this.health <= 0)
+      {
+        foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+         if(go.name == "PlayerUi(Clone)")
+         {
+           if (go.GetComponent<PlayerUi>().ID == ID)
+           {
+             int newScore = int.Parse(go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text)-100;
+             go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = newScore.ToString();
+             SharedInfo.PlayerScores[ID] = newScore.ToString();
+           }
+           if(collision.gameObject.name == "Bullet(Clone)" &&
+               collision.gameObject.GetComponent<BulletController>().PlayerID != ID)
+            {
+             if (go.GetComponent<PlayerUi>().ID == collision.gameObject.GetComponent<BulletController>().PlayerID)
+             {
+               int newScore = int.Parse(go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text)+100;
+               go.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = newScore.ToString();
+             }
+            }
+         }
        }
+        this.gameObject.transform.GetChild(0).parent = GameObject.Find("PlayerUi(Clone)").transform;
+        Destroy(this.gameObject);
       }
     }
 }

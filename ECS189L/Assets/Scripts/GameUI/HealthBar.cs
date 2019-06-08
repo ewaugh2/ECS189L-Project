@@ -18,6 +18,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetSize(float sizeNormalized)
     {
+      if(sizeNormalized < 0) sizeNormalized = 0f;
       bar.localScale = new Vector3(sizeNormalized, 1f);
       float move = (currentSize-sizeNormalized) * 5.4f;
       bar.localPosition = new Vector3(bar.localPosition.x - move, bar.localPosition.y);
