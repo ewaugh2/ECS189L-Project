@@ -33,9 +33,11 @@ public class ZombieAgent : MonoBehaviour
         }
 
         // Set move to location
-
-
-        var destination = new Vector3(closest.transform.position.x, closest.transform.position.y, position.z);
+        var destination = new Vector3(0, 0, 0);
+        if (closest != null)
+        {
+            destination = new Vector3(closest.transform.position.x, closest.transform.position.y, position.z);
+        }
 
         agent.SetDestination(destination);
         // Debug.Log("Zombie location: " + position + "\nPlayer location: " + closest.transform.position + "\nDestination: " + destination + "\n");

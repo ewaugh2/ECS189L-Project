@@ -26,10 +26,16 @@ public class PlayerController : MonoBehaviour
     {
         skip = false;
         ammunition = 100;
+        SetAmmoUI();
 
         int auxID = count;
         this.ID = auxID;
         count += 1;
+    }
+
+    public void RestartPlayerCount()
+    {
+        count = 1;
     }
 
     public void MoveUp()
@@ -81,7 +87,8 @@ public class PlayerController : MonoBehaviour
     {
         if(!this.Active)
         {
-            DecreaseAmmo();
+            ammunition -= 1;
+            SetAmmoUI();
 
             this.gameObject.GetComponent<Animator>().SetBool("PlayerShoot", true);
             this.gameObject.GetComponent<Animator>().SetBool("PlayerIdle", false);
@@ -91,10 +98,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void DecreaseAmmo()
+    private void SetAmmoUI()
     {
-        ammunition -= 1;
-
         foreach(GameObject go in Object.FindObjectsOfType(typeof(GameObject)))
         {
             if(go.name == "PlayerUi(Clone)")

@@ -157,6 +157,10 @@ public class GameManager : MonoBehaviour
                 playersUi.Add(go);
             }
         }
+
+        // reset count of players
+        players[0].GetComponent<PlayerController>().RestartPlayerCount();
+
         var map = GameObject.Find("Map");
         if (numPlayers == 2)
         {
