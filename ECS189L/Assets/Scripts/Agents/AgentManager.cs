@@ -17,7 +17,7 @@ public class AgentManager : MonoBehaviour
 
 	public GameObject AddAgent(GameObject owner)
 	{
-		Debug.Log("Added agent " + (agents.Count + 1));
+		// Debug.Log("Added agent " + (agents.Count + 1));
 
 		// Create agent
 		Vector3 position = new Vector3(owner.transform.position.x, owner.transform.position.y, 180);
