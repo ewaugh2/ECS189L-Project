@@ -51,6 +51,9 @@ public class ZombieController : MonoBehaviour
 				 }
 			 }
 				AgentManager.GetInstance().KillZombie(this.gameObject);
+				Object bloodPrefab = Resources.Load("Prefabs/blood2");
+				var blood = (GameObject)Instantiate(bloodPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
+				Destroy(blood, 5f);
 				Destroy(this.gameObject);
 
 			}

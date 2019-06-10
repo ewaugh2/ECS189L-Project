@@ -240,6 +240,9 @@ public class PlayerController : MonoBehaviour
                }
              }
            }
+           Object bloodPrefab = Resources.Load("Prefabs/blood");
+     			 var blood = (GameObject)Instantiate(bloodPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
+     			 Destroy(blood, 1f);
          }
          if(collision.gameObject.name == "Zombie(Clone)" && sinceLastHit >= ZOMBIE_HIT_INTERVAL)
          {
@@ -255,6 +258,9 @@ public class PlayerController : MonoBehaviour
                 }
               }
             }
+            Object bloodPrefab = Resources.Load("Prefabs/blood");
+      			var blood = (GameObject)Instantiate(bloodPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
+      			Destroy(blood, 0.2f);
           }
       if(this.health <= 0)
       {

@@ -1,0 +1,825 @@
+fileFormatVersion: 2
+guid: e76a64a6c188fef47b10c1fc849ea34f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5559988005381846423
+    second: BloodAnim_0
+  - first:
+      213: 1199867020872392883
+    second: BloodAnim_1
+  - first:
+      213: 6734794543763435889
+    second: BloodAnim_2
+  - first:
+      213: -452841451074176906
+    second: BloodAnim_3
+  - first:
+      213: -2089277754754482048
+    second: BloodAnim_4
+  - first:
+      213: 5067885635615414010
+    second: BloodAnim_5
+  - first:
+      213: 8428441984457411676
+    second: BloodAnim_6
+  - first:
+      213: -4659759659938362523
+    second: BloodAnim_7
+  - first:
+      213: 3391201769673710609
+    second: BloodAnim_8
+  - first:
+      213: -8551362273768809981
+    second: BloodAnim_9
+  - first:
+      213: 1494113351857401752
+    second: BloodAnim_10
+  - first:
+      213: 1007611779757317672
+    second: BloodAnim_11
+  - first:
+      213: -7950673236321194009
+    second: BloodAnim_12
+  - first:
+      213: 265578190528851208
+    second: BloodAnim_13
+  - first:
+      213: -7671671789536824622
+    second: BloodAnim_14
+  - first:
+      213: 5445797029858512837
+    second: BloodAnim_15
+  - first:
+      213: -3364669383326287824
+    second: BloodAnim_16
+  - first:
+      213: -5856265499360365177
+    second: BloodAnim_17
+  - first:
+      213: 7317690360097414354
+    second: BloodAnim_18
+  - first:
+      213: 6388606716976147422
+    second: BloodAnim_19
+  - first:
+      213: 5332379471011149243
+    second: BloodAnim_20
+  - first:
+      213: 2716746151880615978
+    second: BloodAnim_21
+  - first:
+      213: 1586830034566512689
+    second: BloodAnim_22
+  - first:
+      213: -4898784533422819283
+    second: BloodAnim_23
+  - first:
+      213: 7051093692819432362
+    second: BloodAnim_24
+  - first:
+      213: -5442470430910322348
+    second: BloodAnim_25
+  - first:
+      213: 8830883747337634477
+    second: BloodAnim_26
+  - first:
+      213: -5337297644661842158
+    second: BloodAnim_27
+  - first:
+      213: -3990233310295389532
+    second: BloodAnim_28
+  - first:
+      213: -1445758472248735644
+    second: BloodAnim_29
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BloodAnim_0
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1784
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88d1d8ce9b593fb41896e8b6b7b3b5a9
+      internalID: 5559988005381846423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_1
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 1728
+        width: 112
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b596a6bd255d1804f85d2ecc843d3177
+      internalID: 1199867020872392883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_2
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 1720
+        width: 176
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54499166853870846b36eaf5f346027e
+      internalID: 6734794543763435889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_3
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 1720
+        width: 272
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dadb7446b6cb2cc49ace723abba1728d
+      internalID: -452841451074176906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_4
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1368
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd669b8f49f82684584d2b21613535db
+      internalID: -2089277754754482048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_5
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 1192
+        width: 344
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3ad6927447dde47a0d9e724751cee4
+      internalID: 5067885635615414010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_6
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 1376
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0798f85de84b5438477b9e27d9eabb
+      internalID: 8428441984457411676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_7
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 1192
+        width: 320
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8102a3c6cb0bbe4b951d9513467ad12
+      internalID: -4659759659938362523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_8
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 1184
+        width: 288
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb150b3f5426ffd4abd4652210a75087
+      internalID: 3391201769673710609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_9
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 1192
+        width: 320
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e0bfa0e28a74e447bdebce12e65a558
+      internalID: -8551362273768809981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_10
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 1176
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf23f4217bc84d42ba5fef0b98c0f6e
+      internalID: 1494113351857401752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_11
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 872
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ac124afff07d544a9582d38bfce3e8
+      internalID: 1007611779757317672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_12
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 680
+        width: 296
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f2b8e5a90d3be459a7e50afa0e1c85
+      internalID: -7950673236321194009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_13
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 800
+        width: 64
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b0c4aa69c3bbd946af663961f8720db
+      internalID: 265578190528851208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_14
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 680
+        width: 296
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d3b7b429a40258458895332011a0cf6
+      internalID: -7671671789536824622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 800
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0aa517e73092d04190912375620e880
+      internalID: 5445797029858512837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_16
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 680
+        width: 304
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e242cd53d369a5649ae2661dc97fca1b
+      internalID: -3364669383326287824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_17
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 680
+        width: 304
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1710c86141ded4bbcba15dded9bbb3
+      internalID: -5856265499360365177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_18
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 808
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650e3e827232d2b41a7feff9f9bb0a42
+      internalID: 7317690360097414354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_19
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 664
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b71e7f6466e68a408681b364a1f6c09
+      internalID: 6388606716976147422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_20
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 664
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d3fdb1abd9db6449aac61c6ca643581
+      internalID: 5332379471011149243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 168
+        width: 312
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8d47f4b05b00249af10316aa16f7e3
+      internalID: 2716746151880615978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_22
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 168
+        width: 296
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eacd60e84307ee44dbd42f2525725016
+      internalID: 1586830034566512689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_23
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 160
+        width: 280
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd153a7ffb313bf4d8fa31cdf6b5a10e
+      internalID: -4898784533422819283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_24
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 304
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f37f5495fe6ef6419030eef120660f5
+      internalID: 7051093692819432362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_25
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 160
+        width: 296
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58dd07e09ebbc1342a6ef885df3a1043
+      internalID: -5442470430910322348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_26
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 272
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86ffe757479ed04c9e6ef724084fb2c
+      internalID: 8830883747337634477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_27
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 280
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2931088be9da04898bf9a34334d26c
+      internalID: -5337297644661842158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_28
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 280
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f2820e76f38c854595206920ec85deb
+      internalID: -3990233310295389532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodAnim_29
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 256
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de2a6247d488ccf4dbb03bbae38164ac
+      internalID: -1445758472248735644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -737, y: 208}
+      - {x: -737, y: 457}
+      - {x: -517, y: 457}
+      - {x: -517, y: 208}
+    physicsShape: []
+    bones: []
+    spriteID: 147ae9b4f9de9104e8d8e97f25fe98e5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
