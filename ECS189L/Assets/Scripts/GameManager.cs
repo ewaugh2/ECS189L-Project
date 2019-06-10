@@ -160,6 +160,7 @@ public class GameManager : MonoBehaviour
 
         // reset count of players
         players[0].GetComponent<PlayerController>().RestartPlayerCount();
+        playersUi[0].GetComponent<PlayerUi>().RestartPlayerUiCount();
 
         var map = GameObject.Find("Map");
         if (numPlayers == 2)

@@ -13,4 +13,9 @@ public class PlayerUi : MonoBehaviour
       this.ID = auxID;
       count += 1;
   }
+
+  public void RestartPlayerUiCount()
+  {
+      count = 1;
+  }
 }
