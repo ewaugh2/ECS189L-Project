@@ -1,12 +1,12 @@
 # Game Basic Information #
 
-Owners:
+**Owners**
 
-Ehtesham sttar (@esttar)
-Emil Aliyev (@EmilAliyev)
-Enrique Waugh (@ewaugh2)
-Fernando Pieressa (@FernandoPieressa)
-Filippo Soldati (@sfilippo)
+- Ehtesham sttar (@esttar)
+- Emil Aliyev (@EmilAliyev)
+- Enrique Waugh (@ewaugh2)
+- Fernando Pieressa (@FernandoPieressa)
+- Filippo Soldati (@sfilippo)
 
 ## Summary ##
 
@@ -38,20 +38,7 @@ Other than points granted by zombies, hitting a player grants 10 points and kill
 
 # Main Roles #
 
-Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
-
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least 4 such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content.
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The background of the game consists of procedurally-generated terrain that is produced with Perlin noise. This terrain can be modified by the by the game at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based off the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your own relevant information. Liberally use the template when necessary and appropriate.
-
 ## User Interface
-
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
 
 *Main Menu* - The main menu of the game had as objective the possibility for the user to start setting up the game and giving the story/credits of the game. While in this interface, its possible to choose how many players will play the game, along with the key bindings for the players controllers. Also this menu was the one that showed the final score of each player once the game ended. The information transfer between the main menu and game scene was with the use of static classes, that where updated before changing scenes.
 
@@ -62,8 +49,6 @@ You should replay any **bold text** with your own relevant information. Liberall
 *Player Ui* - Utilizing the observer pattern, each of the players in the game was linked with a player ui, that had as objective showing the user the current health, score and ammo to each player. Every time the player changed one of this attributes, the player ui gameobject had to update to show the correct values.
 
 ## Movement/Physics
-
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your own movement scripts that do not use the phyics system?**
 
 As the main game takes place in a top-down 2d world, w removed gravity from the game from the 2D Physics. The movement is implemented using the Command pattern, although to avoid having too many classes I've chosen to use static methods to instantiate the required movement commands.
 
@@ -78,15 +63,7 @@ It's a very small task but I also implemented cameras for the players, although 
 
 ## Animation and Visuals
 
-**List your assets including their sources, and licenses.**
-
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
-
 ## Input
-
-**Describe the default input configuration.**
-
-**Add an entry for each platform or input style your project supports.**
 
 The default input configuration consist in a series of key bindings for four players that can be seen in the Settings at the main menu. The keybindings can be altered to customize each command to improve the game experience.
 
@@ -97,8 +74,6 @@ To achieve this we used some features of the unity interface to bind the buttons
 This information was all stored in the Input Manager, a singleton that was in charge of keeping track the keybindings.
 
 ## Game Logic
-
-**Document what game states and game data you managed and what design patterns you used to complete your task.**
 
 Due to the lack of time of the student in charge of game logic, to obtain the best game possible this part was done by different collaborators
 
@@ -134,27 +109,15 @@ I had the GameManager attach the ZombieSpawner script to each portal at the star
 
 ## Audio
 
-**List your assets including their sources, and licenses.**
-
 All Audio assets can be found in Assets/Resources/Audio. All audio assets were free assets downloaded from the Unity Store.
 
 Assets/Resources/Audio/Main Menu/Music/Title Screen Theme - https://assetstore.unity.com/packages/audio/music/ancient-era-music-free-pack-146823
 
-**Describe the implementation of your audio system.**
-
 I implemented the title screen theme song by adding an Audio Source component to the Canvas object, and placing the Title Screen Theme in the AudioClip field. I had the theme Play on Awake and Loop.
-
-**Document the sound style.**
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
-
-**Summarize the key findings from your gameplay tests.**
-
 ## Narrative Design
-
-**oDocument how the narrative is present in the game via assets, gameplay systems, and gameplay.**
 
 The narrative is presented simply as a text behind the History button at the main menu. It presents a quick explanation about why the players are in the position that they are and suggest the objective of the game.
 
@@ -169,8 +132,6 @@ Screenshots show various gameplay scenarios, with emphasis on both the PvP and s
 
 
 ## Game Feel
-
-**Document what you added to and how you tweaked your game to improve its game feel.**
 
 *Shooting* - To make the game harder and make it feel more of a challenge, changed the way the shooting worked, by limiting the range of the bullet, removing the ricochet of the bullet and by reducing the fire time between bullets, this way the player have to decide better when and where to shoot
 
