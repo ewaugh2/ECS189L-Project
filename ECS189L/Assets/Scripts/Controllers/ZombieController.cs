@@ -19,6 +19,13 @@ public class ZombieController : MonoBehaviour
         this.zombie3D = newAgent;
     }
 
+    //On Destroy
+    private void OnDestroy()
+    {
+        Vector3 pos = this.gameObject.transform.position;
+        ItemSpawner.getInstance().spawnItem(pos);
+    }
+
     // Update is called once per frame
     void Update()
     {
