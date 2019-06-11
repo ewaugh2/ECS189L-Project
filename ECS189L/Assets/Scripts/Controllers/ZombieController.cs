@@ -6,6 +6,7 @@ using TMPro;
 public class ZombieController : MonoBehaviour
 {
 	[SerializeField] private GameObject zombie3D;
+	private bool hasValidAgent = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +18,13 @@ public class ZombieController : MonoBehaviour
     public void SetAgent(GameObject newAgent)
     {
         this.zombie3D = newAgent;
+        hasValidAgent = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-    	if(zombie3D.transform.position.x != 0)
+    	if(hasValidAgent)
     	{
 	    	var zombie = zombie3D.transform;
 

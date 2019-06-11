@@ -20,7 +20,7 @@ public class AgentManager : MonoBehaviour
 		// Debug.Log("Added agent " + (agents.Count + 1));
 
 		// Create agent
-		Vector3 position = new Vector3(owner.transform.position.x, owner.transform.position.y, 180);
+		Vector3 position = new Vector3(owner.transform.position.x - 283.73f, 8f, owner.transform.position.y - 268.5f);
 		var agent = Instantiate(agentPrefab, position, owner.transform.rotation) as GameObject;
 		// Set agent position
 		agent.transform.SetParent(this.gameObject.transform, false);
