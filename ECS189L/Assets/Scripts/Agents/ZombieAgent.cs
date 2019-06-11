@@ -17,7 +17,6 @@ public class ZombieAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        return;
         // Choose player to attack
         var players = GameManager.getInstance().GetAlivePlayers();
 

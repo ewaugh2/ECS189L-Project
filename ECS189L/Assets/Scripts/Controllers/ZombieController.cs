@@ -6,7 +6,6 @@ using TMPro;
 public class ZombieController : MonoBehaviour
 {
 	[SerializeField] private GameObject zombie3D;
-	private bool hasValidAgent = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,23 +17,18 @@ public class ZombieController : MonoBehaviour
     public void SetAgent(GameObject newAgent)
     {
         this.zombie3D = newAgent;
-        hasValidAgent = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-    	if(hasValidAgent)
-    	{
-	    	var zombie = zombie3D.transform;
+    	var zombie = zombie3D.transform;
 
-	    	// Copy location
-	        this.gameObject.transform.position = new Vector3(zombie.position.x, zombie.position.y, -0.5f);
-	        // Copy rotation
-	        this.gameObject.transform.rotation = zombie.transform.rotation;
-	        this.gameObject.transform.Rotate(90, 0, 0);
-    	}
-
+    	// Copy location
+        this.gameObject.transform.position = new Vector3(zombie.position.x, zombie.position.y, -0.5f);
+        // Copy rotation
+        this.gameObject.transform.rotation = zombie.transform.rotation;
+        this.gameObject.transform.Rotate(90, 0, 0);
     }
 
 		private void OnCollisionEnter2D(Collision2D collision)
