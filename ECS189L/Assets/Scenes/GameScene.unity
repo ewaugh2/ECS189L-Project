@@ -10305,6 +10305,10 @@ MonoBehaviour:
     type: 3}
   zombiePrefab: {fileID: 5888010556229130094, guid: 888ebd428d7184bb494cff9ad0326ace,
     type: 3}
+  ammoPickupPrefab: {fileID: 6067622769798062239, guid: fa328e0db2b534dcc8f9f5a6415b6572,
+    type: 3}
+  healthPickupPrefab: {fileID: 3741220723645454385, guid: 3df27b70b394449ef8c66c313b9c88c1,
+    type: 3}
 --- !u!114 &954671431
 MonoBehaviour:
   m_ObjectHideFlags: 0

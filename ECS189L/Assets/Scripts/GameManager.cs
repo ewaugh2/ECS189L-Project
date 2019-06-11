@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject playerPrefab;
     [SerializeField] public GameObject playerUi;
     [SerializeField] public GameObject zombiePrefab;
+    [SerializeField] public GameObject ammoPickupPrefab;
+    [SerializeField] public GameObject healthPickupPrefab;
 
     //Tags
     private string zombiePortalTag = "ZombiePortal";
@@ -61,6 +63,9 @@ public class GameManager : MonoBehaviour
         }
 
         gamestate = GameState.titleScreen;
+
+        //Create Item spawner, set prefabs
+        ItemSpawner.getInstance().setPrefabs(ammoPickupPrefab, healthPickupPrefab);
     }
 
     // Start is called before the first frame update
