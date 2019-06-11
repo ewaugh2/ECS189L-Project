@@ -1,20 +1,12 @@
 # Game Basic Information #
 
-Owners:
-
-Ehtesham sttar (@esttar)
-Emil Aliyev (@EmilAliyev)
-Enrique Waugh (@ewaugh2)
-Fernando Pieressa (@FernandoPieressa)
-Filippo Soldati (@sfilippo)
-
 ## Summary ##
 
 GZG, Generic Zombie Game, is a top down 2D shooter in which you need to collect point by killing zombies and eventually other players, while trying to survive endless waves of zombies whose size increase with time.
 
 ## Gameplay explanation ##
 
-In GZG, you are a soldier facing waves of zombies which gets bigger and bigger as time goes by.
+In GZG, you are a soldier facing waves of zombies which gets bigger and bigger as time goes by. 
 Zombies have a chance of dropping extra ammo and health when killed.
 
 ### Controls
@@ -40,7 +32,7 @@ Other than points granted by zombies, hitting a player grants 10 points and kill
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least 4 such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content.
+Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least 4 such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
 
 *Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
 
@@ -72,7 +64,7 @@ Movement changes the speed of the player directly.
 Movement for the zombies is substantially different.
 I replicated the 2D map in 3D and placed it below the current map. Walls are made unwalkable and the ground is baked using Unity's NavMesh Surface component. Then, I added a NavMesh agent to the zombies and added a simple scritp to make the zombies (or more precisely the cubes in the 3D world) chase the closest player to their location.
 
-The 2D sprites of the zombies update their location (except Z) and rotation to match the one of the cube they are linked to. I was satisfied with the result as the zombies move in a smart and logic way even when there's many of them on map, but I was not satisfied in the way I had to replicate the 3D map below the 2D one, as this approach was very manual and requires to manually change the 3D map too if any change is introduced in the 2D one.
+The 2D sprites of the zombies update their location (except Z) and rotation to match the one of the cube they are linked to. I was satisfied with the result as the zombies move in a smart and logic way even when there's many of them on map, but I was not satisfied in the way I had to replicate the 3D map below the 2D one, as this approach was very manual and requires to manually change the 3D map too if any change is introduced in the 2D one. 
 
 It's a very small task but I also implemented cameras for the players, although they had to be modified afterwards by Fernando for the split screen and UI placement.
 
@@ -120,15 +112,15 @@ Worked with Fernandos on zombies getting shot and dealing damage to the player c
 - Created the base for the shooting command.
 - Keep track of bullet count and show that in the UI.
 - Helped with player number coordination. This had to be resetted every time the game ended. Also this had relation with input management.
--
+- 
 
 ### Emil Aliyev
 
-I created a GameManager singleton that is instantiated when the game begins. I had the GameManager set up spawners for players, zombies and items.
+I created a GameManager singleton that is instantiated when the game begins. I had the GameManager set up spawners for players, zombies and items. 
 
 I set up the item spawner as a singleton. It has a spawnItem() function that takes a position as a parameter to spawn an ammo item and to spawn a health item(but will not spawn both at the same time). This function is called when a zombie dies, creating a chance to spawn an item at the position in which the zombie died.
 
-I had the GameManager attach the ZombieSpawner script to each portal at the start of the game. Every 10 seconds, the ZombieSpawner spawns a zombie at the position of the attached portal. Every 60 seconds, the number of zombies spawned at each portal increases by 1.
+I had the GameManager attach the ZombieSpawner script to each portal at the start of the game. Every 10 seconds, the ZombieSpawner spawns a zombie at the position of the attached portal. Every 60 seconds, the number of zombies spawned at each portal increases by 1. 
 
 # Sub-Roles
 
@@ -142,9 +134,9 @@ Assets/Resources/Audio/Main Menu/Music/Title Screen Theme - https://assetstore.u
 
 **Describe the implementation of your audio system.**
 
-I implemented the title screen theme song by adding an Audio Source component to the Canvas object, and placing the Title Screen Theme in the AudioClip field. I had the theme Play on Awake and Loop.
+I implemented the title screen theme song by adding an Audio Source component to the Canvas object, and placing the Title Screen Theme in the AudioClip field. I had the theme Play on Awake and Loop. 
 
-**Document the sound style.**
+**Document the sound style.** 
 
 ## Gameplay Testing
 
@@ -154,7 +146,7 @@ I implemented the title screen theme song by adding an Audio Source component to
 
 ## Narrative Design
 
-**oDocument how the narrative is present in the game via assets, gameplay systems, and gameplay.**
+**oDocument how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
 The narrative is presented simply as a text behind the History button at the main menu. It presents a quick explanation about why the players are in the position that they are and suggest the objective of the game.
 
