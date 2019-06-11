@@ -40,7 +40,7 @@ public class ItemSpawner : ScriptableObject
     //Spawn an item at pos
     public void spawnItem(Vector3 pos)
     {
-        float itemSpawn = Random.Range(0, 1);
+        float itemSpawn = Random.Range(0f, 1f);
 
         //10% chance of spawning ammo, 10% chance of spawning health. Spawn only one item at a time.
         if(itemSpawn <= AMMO_DROP_RATE)

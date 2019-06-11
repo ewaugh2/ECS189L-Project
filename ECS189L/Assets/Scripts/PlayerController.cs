@@ -226,6 +226,27 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.name == "healthkit(Clone)")
+        {
+           this.health = 100f;
+           foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+           {
+             if(go.name == "PlayerUi(Clone)")
+             {
+               if (go.GetComponent<PlayerUi>().ID == this.ID)
+               {
+                 go.transform.GetChild(1).GetComponent<HealthBar>().SetSize(this.health/100);
+               }
+             }
+           }
+           Destroy(collision.gameObject);
+         }
+         if(collision.gameObject.name == "ammo(Clone)")
+         {
+            this.ammunition += 10;
+            SetAmmoUI();
+            Destroy(collision.gameObject);
+         }
         if(collision.gameObject.name == "Bullet(Clone)" &&
             collision.gameObject.GetComponent<BulletController>().PlayerID != ID)
         {

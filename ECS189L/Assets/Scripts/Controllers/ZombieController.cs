@@ -19,13 +19,6 @@ public class ZombieController : MonoBehaviour
         this.zombie3D = newAgent;
     }
 
-    //On Destroy
-    private void OnDestroy()
-    {
-        Vector3 pos = this.gameObject.transform.position;
-        ItemSpawner.getInstance().spawnItem(pos);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -57,6 +50,8 @@ public class ZombieController : MonoBehaviour
 				Object bloodPrefab = Resources.Load("Prefabs/blood2");
 				var blood = (GameObject)Instantiate(bloodPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
 				Destroy(blood, 5f);
+				Vector3 pos = this.gameObject.transform.position;
+        ItemSpawner.getInstance().spawnItem(pos);
 				Destroy(this.gameObject);
 
 			}
